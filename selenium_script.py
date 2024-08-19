@@ -1,16 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException
 import time
 
 def run_selenium_script(report_type, release_date, country, app_type, number_of_apps, rank_lower, rank_upper):
     # Path to your ChromeDriver
-    driver_path = '/path/to/chromedriver'
-    
-    # Initialize the WebDriver
-    driver = webdriver.Chrome(driver_path)
+    options = Options()
+    options.add_argument('--headless')  # Enable headless mode
+    driver = webdriver.Chrome(options=options)
 
-    # Open the web page
     driver.get("https://investment-ten-self.vercel.app/")
 
     # Wait for the page to load
@@ -50,7 +52,7 @@ def run_selenium_script(report_type, release_date, country, app_type, number_of_
     create_report_button.click()
 
     # Wait for the response (this could vary depending on the site)
-    time.sleep(5)
+    time.sleep(100)
 
     # Close the browser
     driver.quit()
