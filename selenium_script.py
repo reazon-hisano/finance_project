@@ -5,13 +5,21 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 def run_selenium_script(report_type, release_date, country, app_type, number_of_apps, rank_lower, rank_upper):
     # Path to your ChromeDriver
-    options = Options()
-    options.add_argument('--headless')  # Enable headless mode
-    driver = webdriver.Chrome(options=options)
+    # options = Options()
+    # options.add_argument('--headless')  # Enable headless mode
+    # driver = webdriver.Chrome(options=options)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--headless')
+    options.add_argument('--disable-dev-shm-usage')
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
 
     driver.get("https://investment-ten-self.vercel.app/")
 
