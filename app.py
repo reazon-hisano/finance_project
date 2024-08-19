@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from finance_project.selenium_script import run_selenium_script
+from selenium_script import run_selenium_script
 
 app = Flask(__name__)
 
