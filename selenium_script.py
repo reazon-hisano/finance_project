@@ -105,7 +105,7 @@ def run_selenium_script(report_type, email, release_date, country, app_type, num
     # Wait for the response
     time.sleep(10)
     delay = 3 # seconds
-    WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[1]")))
+    WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, "//*[@id='root']/div/a")))
     time.sleep(3)
     # Close the browser
     driver.quit()
