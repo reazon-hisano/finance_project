@@ -26,7 +26,7 @@ def run_selenium_script(report_type, email, release_date, country, app_type, num
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
-    driver.get("https://investment-ten-self.vercel.app/")
+    driver.get("https://investment-ten-self.vercel.app")
 
     time.sleep(2)
 
