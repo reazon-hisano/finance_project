@@ -50,8 +50,9 @@ def run_selenium_script(report_type, email, release_date, country, app_type, num
     # Select Country
     country_element = driver.find_element(By.XPATH, "//*[@id='root']/div/div[4]/div")
     country_element.click()
-    country_option = driver.find_element(By.XPATH, "//*[@id=':r3:']/li[2]")
-    country_option.click()
+    # country_option = driver.find_element(By.XPATH, "//*[@id=':r3:']/li[2]")
+    country_option = driver.find_element(By.XPATH, "//*[@id=':r3:']").send_keys(country)
+    # country_option.click()
     # time.sleep(2)
 
     # Select App Type
